@@ -43,26 +43,26 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D2f-fy-ogP">
-                                                    <rect key="frame" x="105" y="10" width="220" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="95" y="10" width="240" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DoY-o6-ojs">
-                                                    <rect key="frame" x="105" y="41" width="220" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DoY-o6-ojs">
+                                                    <rect key="frame" x="95" y="44" width="240" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFn-2X-626">
-                                                    <rect key="frame" x="105" y="72" width="100" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15 Comments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFn-2X-626">
+                                                    <rect key="frame" x="95" y="72" width="110" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Anv-fm-fBs">
-                                                    <rect key="frame" x="225" y="72" width="100" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 hours ago" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Anv-fm-fBs">
+                                                    <rect key="frame" x="225" y="72" width="110" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -70,18 +70,18 @@
                                         </view>
                                         <constraints>
                                             <constraint firstItem="KFn-2X-626" firstAttribute="width" secondItem="Anv-fm-fBs" secondAttribute="width" id="2aU-oF-lzZ"/>
-                                            <constraint firstItem="D2f-fy-ogP" firstAttribute="leading" secondItem="hYO-P9-aio" secondAttribute="trailing" constant="20" id="2zN-dz-RLo"/>
+                                            <constraint firstItem="D2f-fy-ogP" firstAttribute="leading" secondItem="hYO-P9-aio" secondAttribute="trailing" constant="10" id="2zN-dz-RLo"/>
                                             <constraint firstItem="Anv-fm-fBs" firstAttribute="leading" secondItem="KFn-2X-626" secondAttribute="trailing" constant="20" id="8rn-14-I08"/>
+                                            <constraint firstItem="DoY-o6-ojs" firstAttribute="trailing" secondItem="D2f-fy-ogP" secondAttribute="trailing" id="Bs6-zq-Hph"/>
                                             <constraint firstItem="DoY-o6-ojs" firstAttribute="leading" secondItem="D2f-fy-ogP" secondAttribute="leading" id="CLc-6v-Quu"/>
                                             <constraint firstItem="hYO-P9-aio" firstAttribute="top" secondItem="qxV-Fl-yBi" secondAttribute="top" constant="10" id="Fck-uP-MVy"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="Anv-fm-fBs" secondAttribute="trailing" constant="20" id="HGw-ZG-37R"/>
+                                            <constraint firstItem="Anv-fm-fBs" firstAttribute="trailing" secondItem="DoY-o6-ojs" secondAttribute="trailing" id="GKE-5z-vTd"/>
                                             <constraint firstItem="hYO-P9-aio" firstAttribute="leading" secondItem="qxV-Fl-yBi" secondAttribute="leading" constant="10" id="HnH-El-xe5"/>
                                             <constraint firstItem="KFn-2X-626" firstAttribute="top" secondItem="DoY-o6-ojs" secondAttribute="bottom" constant="10" id="K58-Bd-BRs"/>
                                             <constraint firstItem="KFn-2X-626" firstAttribute="leading" secondItem="DoY-o6-ojs" secondAttribute="leading" id="Ppo-mp-cT8"/>
                                             <constraint firstItem="DoY-o6-ojs" firstAttribute="top" secondItem="D2f-fy-ogP" secondAttribute="bottom" constant="10" id="UPW-U4-RPz"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="D2f-fy-ogP" secondAttribute="trailing" constant="20" id="YJe-Mo-SP9"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="D2f-fy-ogP" secondAttribute="trailing" constant="10" id="YJe-Mo-SP9"/>
                                             <constraint firstItem="Anv-fm-fBs" firstAttribute="top" secondItem="KFn-2X-626" secondAttribute="top" id="i5C-UR-Axl"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="DoY-o6-ojs" secondAttribute="trailing" constant="20" id="iXh-tJ-LCr"/>
                                             <constraint firstItem="D2f-fy-ogP" firstAttribute="top" secondItem="hYO-P9-aio" secondAttribute="top" id="xmD-yb-uvC"/>
                                         </constraints>
                                         <connections>

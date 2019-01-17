@@ -27,12 +27,19 @@ class MainScreenViewController: UIViewController {
             } else if i % 3 == 1 {
                 redditEntries.append(RedditEntryDisplayModel(title: "meduim meduim meduim meduim meduim meduim meduim meduim"))
             } else {
-                redditEntries.append(RedditEntryDisplayModel(title: "long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long"))
+                redditEntries.append(RedditEntryDisplayModel(title: "long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long longg long long long long long long long long long long long long long long long long long long long long long long long long long long long long long longg long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long"))
             }
         }
         
     }
-
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        guard let flowLayout = redditCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else {
+            return
+        }
+        flowLayout.invalidateLayout()
+    }
 
 }
 
@@ -49,12 +56,12 @@ extension MainScreenViewController: UICollectionViewDelegate, UICollectionViewDa
         let width = collectionView.bounds.width - widthOffset
         let size = CGSize(width: width, height: 1000)
         
-        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15)]
+        let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20)]
         let estimatedFrame = NSString(string: redditEntries[indexPath.item].title ?? "").boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
         
         
         
-        return CGSize(width: collectionView.bounds.width - 20, height: estimatedFrame.height < 20 ? 100 : estimatedFrame.height + 100)
+        return CGSize(width: collectionView.bounds.width - 20, height: estimatedFrame.height < 20 ? 80 : estimatedFrame.height + 80)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

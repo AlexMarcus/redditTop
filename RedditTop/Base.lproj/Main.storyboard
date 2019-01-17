@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main Screen View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RedditTop" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainScreenViewController" customModule="RedditTop" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,19 +22,76 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qsb-Rf-lrv">
-                                    <size key="itemSize" width="353" height="76"/>
+                                    <size key="itemSize" width="353" height="113"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="qxV-Fl-yBi">
-                                        <rect key="frame" x="11" y="0.0" width="353" height="76"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="redditCell" id="qxV-Fl-yBi" customClass="RedditCollectionViewCell" customModule="RedditTop" customModuleProvider="target">
+                                        <rect key="frame" x="11" y="0.0" width="353" height="113"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="353" height="76"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="353" height="113"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hYO-P9-aio">
+                                                    <rect key="frame" x="10" y="10" width="75" height="75"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="hYO-P9-aio" secondAttribute="height" multiplier="1:1" id="3EX-Km-tkF"/>
+                                                        <constraint firstAttribute="height" constant="75" id="AJv-Zf-JDu"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D2f-fy-ogP">
+                                                    <rect key="frame" x="105" y="10" width="220" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DoY-o6-ojs">
+                                                    <rect key="frame" x="105" y="41" width="220" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFn-2X-626">
+                                                    <rect key="frame" x="105" y="72" width="100" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Anv-fm-fBs">
+                                                    <rect key="frame" x="225" y="72" width="100" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="KFn-2X-626" firstAttribute="width" secondItem="Anv-fm-fBs" secondAttribute="width" id="2aU-oF-lzZ"/>
+                                            <constraint firstItem="D2f-fy-ogP" firstAttribute="leading" secondItem="hYO-P9-aio" secondAttribute="trailing" constant="20" id="2zN-dz-RLo"/>
+                                            <constraint firstItem="Anv-fm-fBs" firstAttribute="leading" secondItem="KFn-2X-626" secondAttribute="trailing" constant="20" id="8rn-14-I08"/>
+                                            <constraint firstItem="DoY-o6-ojs" firstAttribute="leading" secondItem="D2f-fy-ogP" secondAttribute="leading" id="CLc-6v-Quu"/>
+                                            <constraint firstItem="hYO-P9-aio" firstAttribute="top" secondItem="qxV-Fl-yBi" secondAttribute="top" constant="10" id="Fck-uP-MVy"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="Anv-fm-fBs" secondAttribute="trailing" constant="20" id="HGw-ZG-37R"/>
+                                            <constraint firstItem="hYO-P9-aio" firstAttribute="leading" secondItem="qxV-Fl-yBi" secondAttribute="leading" constant="10" id="HnH-El-xe5"/>
+                                            <constraint firstItem="KFn-2X-626" firstAttribute="top" secondItem="DoY-o6-ojs" secondAttribute="bottom" constant="10" id="K58-Bd-BRs"/>
+                                            <constraint firstItem="KFn-2X-626" firstAttribute="leading" secondItem="DoY-o6-ojs" secondAttribute="leading" id="Ppo-mp-cT8"/>
+                                            <constraint firstItem="DoY-o6-ojs" firstAttribute="top" secondItem="D2f-fy-ogP" secondAttribute="bottom" constant="10" id="UPW-U4-RPz"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="D2f-fy-ogP" secondAttribute="trailing" constant="20" id="YJe-Mo-SP9"/>
+                                            <constraint firstItem="Anv-fm-fBs" firstAttribute="top" secondItem="KFn-2X-626" secondAttribute="top" id="i5C-UR-Axl"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="DoY-o6-ojs" secondAttribute="trailing" constant="20" id="iXh-tJ-LCr"/>
+                                            <constraint firstItem="D2f-fy-ogP" firstAttribute="top" secondItem="hYO-P9-aio" secondAttribute="top" id="xmD-yb-uvC"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="authorLabel" destination="DoY-o6-ojs" id="FaU-0t-fcj"/>
+                                            <outlet property="commentsLabel" destination="KFn-2X-626" id="GHn-jP-7vs"/>
+                                            <outlet property="entryDateLabel" destination="Anv-fm-fBs" id="SVf-Yn-nKX"/>
+                                            <outlet property="imageView" destination="hYO-P9-aio" id="Iyv-0i-eBw"/>
+                                            <outlet property="imageViewHeight" destination="AJv-Zf-JDu" id="oxO-Ij-XIH"/>
+                                            <outlet property="titleLabel" destination="D2f-fy-ogP" id="dTu-LV-3w3"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -49,6 +106,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="FyA-bT-zdT"/>
+                    <connections>
+                        <outlet property="redditCollectionView" destination="LQe-9T-JQI" id="qlE-Xe-5Ox"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

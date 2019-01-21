@@ -107,6 +107,7 @@
 		3824062421F5837E0030B524 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3824061D21F56EED0030B524 /* RedditUIImageView.swift */,
 				3870588321F10D8200004863 /* Main.storyboard */,
 				3870588B21F10D8300004863 /* LaunchScreen.storyboard */,
 				3870588121F10D8200004863 /* MainScreenViewController.swift */,
@@ -119,7 +120,6 @@
 		3824062521F5838E0030B524 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				3824061D21F56EED0030B524 /* RedditUIImageView.swift */,
 				3824061721F53F7D0030B524 /* RedditApiClient.swift */,
 			);
 			path = Utils;

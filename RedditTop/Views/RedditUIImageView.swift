@@ -39,7 +39,7 @@ class RedditUIImageView: UIImageView {
             
             URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
                 if error != nil {
-                    print("URLSession Error: \(error?.localizedDescription)")
+                    print("URLSession Error: \(String(describing: error?.localizedDescription ?? "Unknown Error"))")
                     return
                 }
                 

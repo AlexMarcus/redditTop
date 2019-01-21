@@ -19,17 +19,24 @@ class RedditApiClient {
         }
         let url = URL(string: urlString)
         let task = URLSession.shared.dataTask(with: url!) {(data, response, error ) in
-            do {
-                if let responseJSON = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? NSDictionary {
-                    if let completionHandler = completionHandler, let jsonData = responseJSON.object(forKey: AppConstants.RedditJsonDataKeys.data) as? NSDictionary {
-                        let after = jsonData.object(forKey: AppConstants.RedditJsonDataKeys.after) as? String
-                        let posts = jsonData.object(forKey: AppConstants.RedditJsonDataKeys.children) as? NSArray
-                        completionHandler(after, posts)
+            if let error = error {
+                print("URLSession Error: \(String(describing: error.localizedDescription))")
+                if let completionHandler = completionHandler {
+                    completionHandler(nil, nil)
+                }
+            } else {
+                do {
+                    if let responseJSON = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? NSDictionary {
+                        if let completionHandler = completionHandler, let jsonData = responseJSON.object(forKey: AppConstants.RedditJsonDataKeys.data) as? NSDictionary {
+                            let after = jsonData.object(forKey: AppConstants.RedditJsonDataKeys.after) as? String
+                            let posts = jsonData.object(forKey: AppConstants.RedditJsonDataKeys.children) as? NSArray
+                            completionHandler(after, posts)
+                        }
                     }
                 }
-            }
-            catch {
-                print("Error fetching entries from the API: \(error.localizedDescription)")
+                catch {
+                    print("Error fetching entries from the API: \(error.localizedDescription)")
+                }
             }
         }
         task.resume()

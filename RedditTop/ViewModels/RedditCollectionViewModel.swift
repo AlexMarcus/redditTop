@@ -60,7 +60,8 @@ class RedditCollectionViewModel {
     func reset(){
         hasAfter = false
         currentAfter = nil
-        redditPosts?.removeAll()
+        shouldKeepPaginating = true
+        isLoading = false
     }
     
     func parseJsonRedditPost(json: NSDictionary) -> RedditEntryDisplayModel? {

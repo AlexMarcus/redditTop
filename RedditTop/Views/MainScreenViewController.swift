@@ -111,7 +111,9 @@ extension MainScreenViewController: UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppConstants.redditCellReuseIdentifier, for: indexPath) as! RedditCollectionViewCell
-        cell.setUpCell(displayModel: viewModel.redditPosts?[indexPath.item])
+        if indexPath.item < viewModel.redditPosts?.count ?? 0 {
+            cell.setUpCell(displayModel: viewModel.redditPosts?[indexPath.item])
+        }
         
         return cell
     }

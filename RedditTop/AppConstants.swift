@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 func getApiLimitString(limit: Int) -> String{
     if(limit > 0){
@@ -17,6 +18,12 @@ func getApiLimitString(limit: Int) -> String{
 }
 
 struct AppConstants {
+    
+    //Colors
+    struct Colors {
+        static let mainColor = UIColor(red: 251/255.0, green: 113/255.0, blue: 36/255.0, alpha: 1.0)
+        static let secondaryColor = UIColor(red: 255/255.0, green: 169/255.0, blue: 121/255.0, alpha: 1.0)
+    }
     
     //Application URLS
     struct Urls {
@@ -41,25 +48,18 @@ struct AppConstants {
             static let numComments = "num_comments"
             static let createdDate = "created_utc"
             static let preview = "preview"
-            
-            struct Preview {
-                static let images = "images"
-                
-                struct Images {
-                    static let source = "source"
-                    
-                    struct Source {
-                        static let url = "url"
-                        static let width = "width"
-                        static let height = "height"
-                    }
-                }
-            }
+            static let thumbnail = "thumbnail"
+            static let url = "url"
+            static let postHint = "post_hint"
         }
-        
-        
+    }
+    
+    struct SegueIds {
+        static let collectionToImageView = "collection_to_image_view"
     }
 
     static let redditCellReuseIdentifier = "redditCell"
+    
+    
     
 }

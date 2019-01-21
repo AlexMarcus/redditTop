@@ -12,7 +12,7 @@ class RedditApiClient {
     
     func loadPageOfData(after: String?, completionHandler: ((_ newAfter: String?, _ json: NSArray?)->())?){
         var urlString = AppConstants.Urls.redditUrl
-        let limitString = getApiLimitString(limit: 150)
+        let limitString = getApiLimitString(limit: AppConstants.limit)
         urlString += limitString
         if let afterUnwrapped = after {
             urlString += "&after=\(afterUnwrapped)"

@@ -13,12 +13,13 @@ func getApiLimitString(limit: Int) -> String{
     if(limit > 0){
         return "?limit=\(limit)"
     } else {
-        return "?limit=25)"
+        return "?limit=25"
     }
 }
 
 struct AppConstants {
     
+
     //Colors
     struct Colors {
         static let mainColor = UIColor(red: 251/255.0, green: 113/255.0, blue: 36/255.0, alpha: 1.0)
@@ -31,7 +32,7 @@ struct AppConstants {
     }
     
     //API Limit
-    static let limit = 10
+    static let limit = 15
     
     
     //JSON Parsing

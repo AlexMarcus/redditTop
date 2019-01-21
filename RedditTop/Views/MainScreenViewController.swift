@@ -11,6 +11,7 @@ import UIKit
 class MainScreenViewController: UIViewController {
 
     @IBOutlet weak var redditCollectionView: UICollectionView!
+    @IBOutlet weak var progressIndicator: UIActivityIndicatorView!
     
     var redditEntries: [RedditEntryDisplayModel] = []
     let viewModel: RedditCollectionViewModel = RedditCollectionViewModel()
@@ -25,11 +26,16 @@ class MainScreenViewController: UIViewController {
         self.redditCollectionView.delegate = self
         self.redditCollectionView.dataSource = self
         
-        
+        showProgressInd()
         viewModel.loadEntries(after: nil) {
+            self.hideProgressInd()
             self.redditCollectionView.reloadData()
+            
         }
         
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        redditCollectionView.refreshControl = refreshControl
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -44,6 +50,30 @@ class MainScreenViewController: UIViewController {
         if segue.identifier == AppConstants.SegueIds.collectionToImageView{
             let destination = segue.destination as? DetailsViewController
             destination?.displayModel = selectedDisplayModel
+        }
+    }
+    
+    @objc func refresh(){
+        viewModel.reset()
+        viewModel.loadEntries(after: nil){
+            self.redditCollectionView.reloadData()
+            self.redditCollectionView.refreshControl?.endRefreshing()
+        }
+    }
+    
+    func hideProgressInd(){
+        progressIndicator.isHidden = true
+    }
+    
+    func showProgressInd(){
+        progressIndicator.isHidden = false
+    }
+    
+    func getPageOfPosts(){
+        if !viewModel.isLoading && viewModel.shouldKeepPaginating {
+            viewModel.loadEntries(after: viewModel.currentAfter) {
+                self.redditCollectionView.reloadData()
+            }
         }
     }
 
@@ -94,6 +124,10 @@ extension MainScreenViewController: UICollectionViewDelegate, UICollectionViewDa
         }
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if ((viewModel.redditPosts?.count ?? 0) - indexPath.row) < 5{
+            getPageOfPosts()
+        }
+    }
 }
 

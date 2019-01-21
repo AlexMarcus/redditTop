@@ -17,9 +17,14 @@ class RedditCollectionViewModel {
     
     var hasAfter: Bool = false
     
+    var isLoading: Bool = false
+    var shouldKeepPaginating: Bool = true
+    
     func loadEntries(after: String?, completionHandler:(()->())?){
+        isLoading = true
         
         apiClient.loadPageOfData(after: after) {(newAfter, json) in
+            self.isLoading = false
             if let json = json {
                 var postsToAdd: [RedditEntryDisplayModel] = []
                 for post in json {
@@ -41,6 +46,8 @@ class RedditCollectionViewModel {
                 } else {
                     self.hasAfter = false
                 }
+            } else {
+                self.shouldKeepPaginating = false
             }
             if let completionHandler = completionHandler {
                 DispatchQueue.main.async {
@@ -48,6 +55,12 @@ class RedditCollectionViewModel {
                 }
             }
         }
+    }
+    
+    func reset(){
+        hasAfter = false
+        currentAfter = nil
+        redditPosts?.removeAll()
     }
     
     func parseJsonRedditPost(json: NSDictionary) -> RedditEntryDisplayModel? {

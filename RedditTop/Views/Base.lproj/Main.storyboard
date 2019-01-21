@@ -95,18 +95,28 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="lsi-M1-Zus">
+                                <rect key="frame" x="167.5" y="313.5" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="OsS-QI-Oio"/>
+                                    <constraint firstAttribute="height" constant="40" id="jOe-aw-r0B"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LQe-9T-JQI" secondAttribute="trailing" id="8Pg-2w-mzW"/>
+                            <constraint firstItem="lsi-M1-Zus" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="DfX-z8-wmc"/>
                             <constraint firstItem="LQe-9T-JQI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="JxT-9U-ZZE"/>
                             <constraint firstItem="LQe-9T-JQI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="K4s-u1-zfk"/>
+                            <constraint firstItem="lsi-M1-Zus" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-32" id="eQQ-v2-QZH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="LQe-9T-JQI" secondAttribute="bottom" id="gJW-LQ-4xz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="FyA-bT-zdT"/>
                     <connections>
+                        <outlet property="progressIndicator" destination="lsi-M1-Zus" id="hAf-XS-d67"/>
                         <outlet property="redditCollectionView" destination="LQe-9T-JQI" id="qlE-Xe-5Ox"/>
                         <segue destination="w2V-nN-ark" kind="show" identifier="collection_to_image_view" id="Xc3-lW-PdW"/>
                     </connections>

@@ -38,11 +38,14 @@ class RedditCollectionViewCell: UICollectionViewCell{
         self.imageView.image = UIImage(imageLiteralResourceName: "reddit_placeholder")
     }
     
-    func setUpCell(displayModel: RedditEntryDisplayModel){
-        self.backgroundColor = .white
-        self.imageView.image = UIImage(imageLiteralResourceName: "reddit_placeholder")
-        self.titleLabel.text = displayModel.title
-        //imageViewHeight.constant = 0
+    func setUpCell(displayModel: RedditEntryDisplayModel?){
+        if let displayModel = displayModel {
+            self.backgroundColor = .white
+            self.imageView.image = UIImage(imageLiteralResourceName: "reddit_placeholder")
+            self.titleLabel.text = displayModel.title
+            //imageViewHeight.constant = 0
+        }
+        
         
     }
 }

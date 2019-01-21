@@ -13,6 +13,7 @@ class MainScreenViewController: UIViewController {
     @IBOutlet weak var redditCollectionView: UICollectionView!
     
     var redditEntries: [RedditEntryDisplayModel] = []
+    let viewModel: RedditCollectionViewModel = RedditCollectionViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,16 +21,22 @@ class MainScreenViewController: UIViewController {
         self.redditCollectionView.backgroundColor = .blue
         self.redditCollectionView.delegate = self
         self.redditCollectionView.dataSource = self
-
-        for i in 0...30 {
-            if i % 3 == 0 {
-                redditEntries.append(RedditEntryDisplayModel(title: "short"))
-            } else if i % 3 == 1 {
-                redditEntries.append(RedditEntryDisplayModel(title: "meduim meduim meduim meduim meduim meduim meduim meduim"))
-            } else {
-                redditEntries.append(RedditEntryDisplayModel(title: "long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long longg long long long long long long long long long long long long long long long long long long long long long long long long long long long long long longg long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long"))
-            }
+        
+        
+        viewModel.loadEntries(after: nil) {
+            self.redditCollectionView.reloadData()
         }
+    
+
+//        for i in 0...30 {
+//            if i % 3 == 0 {
+//                redditEntries.append(RedditEntryDisplayModel(title: "short"))
+//            } else if i % 3 == 1 {
+//                redditEntries.append(RedditEntryDisplayModel(title: "meduim meduim meduim meduim meduim meduim meduim meduim"))
+//            } else {
+//                redditEntries.append(RedditEntryDisplayModel(title: "long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long longg long long long long long long long long long long long long long long long long long long long long long long long long long long long long long longg long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long longg long long long long long long long long long long long long long long long long long long long long long long long long long long long long long longg long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long longg long long long long g"))
+//            }
+//        }
         
     }
     
@@ -57,7 +64,7 @@ extension MainScreenViewController: UICollectionViewDelegate, UICollectionViewDa
         let size = CGSize(width: width, height: 1000)
         
         let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20)]
-        let estimatedFrame = NSString(string: redditEntries[indexPath.item].title ?? "").boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
+        let estimatedFrame = NSString(string: viewModel.redditPosts?[indexPath.item].title ?? "").boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
         
         
         
@@ -65,12 +72,12 @@ extension MainScreenViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return redditEntries.count
+        return viewModel.redditPosts?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppConstants.redditCellReuseIdentifier, for: indexPath) as! RedditCollectionViewCell
-        cell.setUpCell(displayModel: redditEntries[indexPath.item])
+        cell.setUpCell(displayModel: viewModel.redditPosts?[indexPath.item])
         
         return cell
     }

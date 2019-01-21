@@ -39,6 +39,7 @@ struct AppConstants {
             static let title = "title"
             static let author = "author"
             static let numComments = "num_comments"
+            static let createdDate = "created_utc"
             static let preview = "preview"
             
             struct Preview {

@@ -43,6 +43,9 @@ class RedditCollectionViewCell: UICollectionViewCell{
             self.backgroundColor = .white
             self.imageView.image = UIImage(imageLiteralResourceName: "reddit_placeholder")
             self.titleLabel.text = displayModel.title
+            self.authorLabel.text = displayModel.author
+            self.entryDateLabel.text = displayModel.createdTimeString
+            self.commentsLabel.text = displayModel.numComments
             //imageViewHeight.constant = 0
         }
         

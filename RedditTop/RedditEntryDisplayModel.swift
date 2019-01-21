@@ -10,8 +10,14 @@ import Foundation
 
 class RedditEntryDisplayModel{
     var title: String?
+    var author: String?
+    var createdTimeString: String?
+    var numComments: String?
     
-    init(title: String) {
+    init(title: String, author: String, createdTimeString: String?, numComments: String?) {
         self.title = title
+        self.author = author
+        self.createdTimeString = createdTimeString
+        self.numComments = numComments
     }
 }

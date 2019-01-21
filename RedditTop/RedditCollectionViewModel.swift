@@ -54,12 +54,32 @@ class RedditCollectionViewModel {
             
             if let data = json.object(forKey: AppConstants.RedditJsonDataKeys.data) as? NSDictionary {
                 let title = data.object(forKey: AppConstants.RedditJsonDataKeys.Entries.title) as? String
-                return RedditEntryDisplayModel(title: title ?? "ERROR: NO TITLE")
+                let author = data.object(forKey: AppConstants.RedditJsonDataKeys.Entries.author) as? String
+                let createdTimeInSeconds = data.object(forKey: AppConstants.RedditJsonDataKeys.Entries.createdDate) as? Double
+                let numComments = data.object(forKey: AppConstants.RedditJsonDataKeys.Entries.numComments) as? Int
+                
+                var createdDateString: String = ""
+                if let secondsSince1970 = createdTimeInSeconds{
+                    print(secondsSince1970)
+                    let createdDate = Date(timeIntervalSince1970: secondsSince1970)
+                    let currentDate = Date()
+                    let differenceString = currentDate.offsetFrom(date: createdDate)
+                    createdDateString = "\(differenceString) ago"
+                }
+                
+                var numCommentsString: String = ""
+                if let numComments = numComments {
+                    if numComments >= 0 {
+                        numCommentsString = "\(numComments) Comments"
+                    }
+                }
+                
+                return RedditEntryDisplayModel(title: title ?? "" , author: author ?? "", createdTimeString: createdDateString, numComments: numCommentsString)
             }
         }
         
         //let title = json.object(forKey: AppConstants.RedditJsonDataKeys.Entries.title) as String
-        return RedditEntryDisplayModel(title: "HELLO")
+        return RedditEntryDisplayModel(title: "" , author: "", createdTimeString: "", numComments: "")
     }
     
 }

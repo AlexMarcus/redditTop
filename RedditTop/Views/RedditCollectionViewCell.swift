@@ -42,7 +42,7 @@ class RedditCollectionViewCell: UICollectionViewCell{
     }
     
     func setUpCell(displayModel: RedditEntryDisplayModel?){
-        backgroundColor = AppConstants.Colors.secondaryColor
+        backgroundColor = .white
         if let displayModel = displayModel {
             
             if displayModel.hasThumbnail {

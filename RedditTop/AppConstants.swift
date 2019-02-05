@@ -28,7 +28,7 @@ struct AppConstants {
     
     //Application URLS
     struct Urls {
-        static let redditUrl = "https://reddit.com/top/.json"
+        static let redditUrl = "https:/reddit.com/r/HighRes/hot/.json"
     }
     
     //API Limit

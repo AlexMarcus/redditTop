@@ -24,8 +24,7 @@ class DetailsViewController: UIViewController {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "HEY", style: .plain, target: nil, action: nil)
         
         scrollView.delegate = self
-        
-        scrollView.maximumZoomScale = 7.0
+        scrollView.maximumZoomScale = 20.0
         scrollView.minimumZoomScale = 1.0
         
         let saveButton = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(saveImageToCameraRoll))

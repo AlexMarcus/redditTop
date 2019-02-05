@@ -63,10 +63,13 @@ class MainScreenViewController: UIViewController {
     
     func hideProgressInd(){
         progressIndicator.isHidden = true
+        progressIndicator.stopAnimating()
     }
     
     func showProgressInd(){
         progressIndicator.isHidden = false
+        progressIndicator.startAnimating()
+
     }
     
     func getPageOfPosts(){
